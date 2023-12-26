@@ -59,6 +59,7 @@ view: planes {
     sql: ${TABLE}.id_evento ;;
   }
   dimension: id_plan {
+    primary_key: yes
     type: string
     sql: ${TABLE}.id_plan ;;
   }
