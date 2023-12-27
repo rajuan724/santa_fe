@@ -25,4 +25,13 @@ view: pacientes {
   measure: count {
     type: count
   }
+
+
+  ######dim created
+  dimension: rango_ratio {
+    type: tier
+    tiers: [0,26, 51, 76, 101]
+    style: integer
+    sql: ${ratio} ;;
+  }
  }
