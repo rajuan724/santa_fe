@@ -22,4 +22,10 @@ explore: planes {
     sql_on: ${planes.id_plan}=${mediciones.id_plan} ;;
     relationship: many_to_many
   }
+
+  join:pacientes{
+    type: left_outer
+    sql_on: ${planes.paciente}=${pacientes.paciente} ;;
+    relationship: many_to_many
+  }
 }
