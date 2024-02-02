@@ -27,6 +27,33 @@ view: mediciones {
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.fecha_creacion_med ;;
   }
+  #########
+  parameter: date_granularity {
+    type: unquoted
+    allowed_value: {
+      label: "Year"
+      value: "year"
+    }
+    allowed_value: {
+      label: "Quarter"
+      value: "quarter"
+    }
+    allowed_value: {
+      label: "Month"
+      value: "month"
+    }
+  }
+
+  dimension: date {
+    sql: {% if date_granularity._parameter_value == 'year' %}
+          ${fecha_creacion_med_year}
+        {% elsif date_granularity._parameter_value == 'quarter' %}
+          ${fecha_creacion_med_quarter}
+        {% elsif date_granularity._parameter_value == 'month' %}
+          ${fecha_creacion_med_month}
+        {% endif %} ;;
+  }
+  #########
   dimension: fecha_eliminacion_med {
     type: string
     sql: ${TABLE}.fecha_eliminacion_med ;;
