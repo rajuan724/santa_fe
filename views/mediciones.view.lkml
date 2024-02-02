@@ -44,7 +44,7 @@ view: mediciones {
     }
   }
 
-  dimension: date {
+  dimension: filtro_date {
     sql: {% if date_granularity._parameter_value == 'year' %}
           ${fecha_creacion_med_year}
         {% elsif date_granularity._parameter_value == 'quarter' %}
